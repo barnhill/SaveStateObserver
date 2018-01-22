@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    implementation 'android.arch.lifecycle:common:1.0.3'
+    implementation 'android.arch.lifecycle:runtime:1.0.3'
     implementation 'com.android.support:appcompat-v7:27.0.2'
     testImplementation 'junit:junit:4.12'
 }
