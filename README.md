@@ -6,7 +6,9 @@ To use in debug builds only use:
 
        debugImplementation 'com.pnuema.android:savestateobserver:1.0.0'
 
-   Logcat:
+Once it has been included as a dependency it will listen for lifecycle state changes and output the following information without any code being inserted in your codebase.
+
+   Example Logcat:
 
        com.virtualdyno.android D/b: ===== SaveStateObserver =====
                                     MainActivity saved Bundle@213688783 which contained 10 elements for 180.50 KB
