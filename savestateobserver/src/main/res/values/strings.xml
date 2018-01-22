@@ -1,7 +1,13 @@
 <resources>
     <!-- translatable strings -->
-    <string name="title">%1$s saved Bundle@%2$d which contained %3$d elements for %4$s</string>
-    <string name="bundle_entry_format">%1$s Bundle@%2$d %3$s contained %4$d elements for %5$s</string>
+    <plurals name="title">
+        <item quantity="one">%1$s saved Bundle@%2$d which contained %3$d element for %4$s</item>
+        <item quantity="other">%1$s saved Bundle@%2$d which contained %3$d elements for %4$s</item>
+    </plurals>
+    <plurals name="bundle_entry_format">
+        <item quantity="one">%1$s Bundle@%2$d %3$s contained %4$d elements for %5$s</item>
+        <item quantity="other">%1$s Bundle@%2$d %3$s contained %4$d elements for %5$s</item>
+    </plurals>
     <string name="kilobyte_suffix">%s KB</string>
     <string name="bytes_suffix">%s bytes</string>
 
