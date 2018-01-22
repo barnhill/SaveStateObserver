@@ -1,0 +1,12 @@
+<manifest package="com.pnuema.savestateobserver"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+
+        <provider
+            android:authorities="${applicationId}.savestateobserverinitprovider"
+            android:exported="false"
+            android:enabled="true"
+            android:name=".SaveStateLibraryContentProvider" />
+
+    </application>
+</manifest>

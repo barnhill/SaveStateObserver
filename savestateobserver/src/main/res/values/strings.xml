@@ -1,0 +1,11 @@
+<resources>
+    <!-- translatable strings -->
+    <string name="title">%1$s saved Bundle@%2$d which contained %3$d elements for %4$s</string>
+    <string name="bundle_entry_format">%1$s Bundle@%2$d %3$s contained %4$d elements for %5$s</string>
+    <string name="kilobyte_suffix">%s KB</string>
+    <string name="bytes_suffix">%s bytes</string>
+
+    <!-- non-translatable strings -->
+    <string name="banner" translatable="false">===== SaveStateObserver =====</string>
+    <string name="entry_format" translatable="false">%1$s %2$s = %3$s</string>
+</resources>
