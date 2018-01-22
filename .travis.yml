@@ -1,6 +1,5 @@
 language: android
 jdk: oraclejdk8
-# See https://github.com/travis-ci/travis-ci/issues/5582
 sudo: false
 android:
   components:
