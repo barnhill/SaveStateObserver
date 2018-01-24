@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation 'android.arch.lifecycle:runtime:1.0.3'
+    implementation 'android.arch.lifecycle:runtime:1.1.0'
     implementation 'com.android.support:appcompat-v7:27.0.2'
     testImplementation 'junit:junit:4.12'
 }
@@ -66,9 +66,53 @@ artifacts {
     archives sourcesJar
 }
 
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                // Add your description here
+                name 'com.pnuema.android:savestateobserver'
+                description = 'Android tool to output the contents sizes of saved state bundles in onSaveInstance state calls'
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'bbarnhill'
+                        name 'Brad Barnhill'
+                        email 'bradfordbarnhill@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
 bintray {
-    user = bintrayuser
-    key = bintrayapikey
+    if (System.getenv("BINTRAY_USER") != null)
+        user = System.getenv("BINTRAY_USER")
+    else
+        user = bintrayuser
+
+    if (System.getenv("BINTRAY_APIKEY") != null)
+        key = System.getenv("BINTRAY_APIKEY")
+    else
+        key = bintrayapikey
+
     dryRun = false //[Default: false] Whether to run this as dry-run, without deploying
     publish = true //[Default: false] Whether version should be auto published after an upload
     override = false //[Default: false] Whether to override version artifacts already published
@@ -89,7 +133,10 @@ bintray {
         version {
             gpg {
                 sign = true
-                passphrase = bintraygpgpassword
+                if (System.getenv("BINTRAY_GPGPASSWORD") != null)
+                    passphrase = System.getenv("BINTRAY_GPGPASSWORD")
+                else
+                    passphrase = bintraygpgpassword
             }
         }
     }
