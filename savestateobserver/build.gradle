@@ -106,12 +106,12 @@ bintray {
     if (System.getenv("BINTRAY_USER") != null)
         user = System.getenv("BINTRAY_USER")
     else
-        user = bintrayuser
+        user = BINTRAY_USER
 
     if (System.getenv("BINTRAY_APIKEY") != null)
         key = System.getenv("BINTRAY_APIKEY")
     else
-        key = bintrayapikey
+        key = BINTRAY_APIKEY
 
     dryRun = false //[Default: false] Whether to run this as dry-run, without deploying
     publish = true //[Default: false] Whether version should be auto published after an upload
@@ -136,7 +136,7 @@ bintray {
                 if (System.getenv("BINTRAY_GPGPASSWORD") != null)
                     passphrase = System.getenv("BINTRAY_GPGPASSWORD")
                 else
-                    passphrase = bintraygpgpassword
+                    passphrase = BINTRAY_GPGPASSWORD
             }
         }
     }
