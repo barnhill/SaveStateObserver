@@ -8,4 +8,5 @@ android:
     - platform-tools
     - tools
     - android-27
+before_install: yes | sdkmanager "platforms;android-27"
 script: ./gradlew build
