@@ -8,16 +8,15 @@ import android.support.v4.app.FragmentActivity;
 import com.pnuema.savestateobserver.BundlePrinter;
 
 public final class ActivitySaveStateObserver extends BaseActivityLifecycleCallbacks {
-    private final FragmentSaveStateObserver fragmentSaveStateObserver = new FragmentSaveStateObserver();
-    private final FragmentSaveStateSupportObserver fragmentSaveStateSupportObserver = new FragmentSaveStateSupportObserver();
-
     @Override
     public void onActivityCreated(Activity activity, Bundle bundle) {
         super.onActivityCreated(activity, bundle);
 
         if (activity instanceof FragmentActivity) {
+            FragmentSaveStateSupportObserver fragmentSaveStateSupportObserver = new FragmentSaveStateSupportObserver();
             ((FragmentActivity)activity).getSupportFragmentManager().registerFragmentLifecycleCallbacks(fragmentSaveStateSupportObserver, true);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            FragmentSaveStateObserver fragmentSaveStateObserver = new FragmentSaveStateObserver();
             activity.getFragmentManager().registerFragmentLifecycleCallbacks(fragmentSaveStateObserver, true);
         }
     }
