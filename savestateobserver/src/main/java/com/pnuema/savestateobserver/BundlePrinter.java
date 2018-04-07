@@ -8,6 +8,7 @@ import android.util.Log;
 
 import java.nio.CharBuffer;
 import java.util.Locale;
+import java.util.Objects;
 
 public final class BundlePrinter {
     private static final String TAG = BundlePrinter.class.getSimpleName();
@@ -22,7 +23,7 @@ public final class BundlePrinter {
             return;
         }
         //TODO multiple logging levels
-        Log.d(TAG, context.getString(R.string.banner) + "\n" + getHeaderAsString(clazz, context, bundle) + "\n" + getContents(context, 1, bundle));
+        Log.d(TAG, context.getString(R.string.banner) + System.lineSeparator() + getHeaderAsString(clazz, context, bundle) + System.lineSeparator() + getContents(context, 1, bundle));
     }
 
     private static String getHeaderAsString(@NonNull final Class clazz, @NonNull final Context context, @NonNull final Bundle bundle) {
@@ -52,7 +53,7 @@ public final class BundlePrinter {
                 if (innerBundle != null) {
                     contents.append(context.getResources().getQuantityString(R.plurals.bundle_entry_format, innerBundle.size(), getPrefix(layer), System.identityHashCode(innerBundle), key, innerBundle.size(), condense(context, getBundleTotalSize(innerBundle))));
                     contents.append('\n');
-                    contents.append(getContents(context, layer + 1, (Bundle) bundle.get(key)));
+                    contents.append(getContents(context, layer + 1, (Bundle) Objects.requireNonNull(bundle.get(key))));
                 }
             } else {
                 contents.append(context.getString(R.string.entry_format, getPrefix(layer), key, sizeOf(context, bundle, key)));

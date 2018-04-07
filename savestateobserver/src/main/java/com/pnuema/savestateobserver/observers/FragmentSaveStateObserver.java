@@ -15,24 +15,24 @@ public final class FragmentSaveStateObserver extends FragmentManager.FragmentLif
     private final SparseArray<Bundle> bundles = new SparseArray<>();
 
     @Override
-    public void onFragmentStopped(FragmentManager fm, Fragment f) {
-        super.onFragmentStopped(fm, f);
+    public void onFragmentStopped(final FragmentManager fragmentManager, final Fragment fragment) {
+        super.onFragmentStopped(fragmentManager, fragment);
 
-        Context context = f.getContext();
+        final Context context = fragment.getContext();
 
         if (context == null) {
             return;
         }
 
-        Integer index = f.hashCode();
+        final int index = fragment.hashCode();
         bundles.remove(index);
-        BundlePrinter.printBundleContents(f.getClass(), context, bundles.get(index));
+        BundlePrinter.printBundleContents(fragment.getClass(), context, bundles.get(index));
     }
 
     @Override
-    public void onFragmentSaveInstanceState(FragmentManager fm, Fragment f, Bundle outState) {
-        super.onFragmentSaveInstanceState(fm, f, outState);
+    public void onFragmentSaveInstanceState(final FragmentManager fragmentManager, final Fragment fragment, final Bundle outState) {
+        super.onFragmentSaveInstanceState(fragmentManager, fragment, outState);
 
-        bundles.put(f.hashCode(), outState);
+        bundles.put(fragment.hashCode(), outState);
     }
 }
