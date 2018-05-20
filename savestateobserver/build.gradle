@@ -1,12 +1,12 @@
 plugins {
     id 'maven'
-    id 'com.github.dcendents.android-maven' version '2.0'
+    id 'com.github.dcendents.android-maven' version '2.1'
     id 'com.jfrog.bintray' version '1.8.0'
 }
 
 apply plugin: 'com.android.library'
 
-version = "1.3.0"
+version = "1.3.1"
 group = "com.pnuema.android"
 
 ext {
@@ -21,7 +21,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
-        versionName "1.3"
+        versionName version
     }
     buildTypes {
         debug {
