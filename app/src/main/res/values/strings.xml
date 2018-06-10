@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SaveStateObserver</string>
+    <string name="instructions">Minimize this app while watching the LogCat to see the results</string>
+</resources>
