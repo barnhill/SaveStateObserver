@@ -9,7 +9,7 @@ import java.util.*
 
 object BundlePrinter {
     private val TAG = BundlePrinter::class.java.simpleName
-    private val SPACE_OFFSET = 4
+    private const val SPACE_OFFSET = 4
 
     fun printBundleContents(clazz: Class<*>, context: Context, bundle: Bundle) {
         //TODO multiple logging levels
