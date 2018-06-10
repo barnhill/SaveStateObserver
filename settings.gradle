@@ -1,1 +1,1 @@
-include ':savestateobserver'
+include ':savestateobserver', ':app'

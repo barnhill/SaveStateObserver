@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentActivity
 import com.pnuema.savestateobserver.BundlePrinter
 
 class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
-    override fun onActivityCreated(activity: Activity, bundle: Bundle) {
+    override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
         super.onActivityCreated(activity, bundle)
 
         if (activity is FragmentActivity) {
@@ -26,7 +26,9 @@ class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
         bundles.remove(index)
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle) {
-        bundles.put(activity.hashCode(), bundle)
+    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) {
+        if (bundle != null) {
+            bundles.put(activity.hashCode(), bundle)
+        }
     }
 }

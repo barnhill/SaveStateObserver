@@ -8,7 +8,7 @@ import android.util.SparseArray
 abstract class BaseActivityLifecycleCallbacks : Application.ActivityLifecycleCallbacks {
     internal val bundles = SparseArray<Bundle>()
 
-    override fun onActivityCreated(activity: Activity, bundle: Bundle) {}
+    override fun onActivityCreated(activity: Activity, bundle: Bundle?) {}
 
     override fun onActivityStarted(activity: Activity) {}
 
@@ -18,7 +18,7 @@ abstract class BaseActivityLifecycleCallbacks : Application.ActivityLifecycleCal
 
     override fun onActivityStopped(activity: Activity) {}
 
-    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle) {}
+    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) {}
 
     override fun onActivityDestroyed(activity: Activity) {}
 }
