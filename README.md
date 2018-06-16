@@ -1,5 +1,5 @@
 # SaveStateObserver [![Build Status](https://api.travis-ci.org/barnhill/SaveStateObserver.svg?branch=master)](https://travis-ci.org/barnhill/SaveStateObserver) [![API](https://img.shields.io/badge/API-17%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=17)
-Android tool to output the contents sizes of saved state bundles in onSaveInstance state calls
+Android tool to output the contents sizes of saved state bundles in onSaveInstance state calls.  This will allow you to analyze your bundles as you pass data to other classes to prevent them from growing to sizes that are not allowed by Android.
 
 ## Usage
 To use in debug builds only use:
