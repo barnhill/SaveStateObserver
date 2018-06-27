@@ -9,4 +9,5 @@
             android:name=".SaveStateLibraryContentProvider" />
 
     </application>
+
 </manifest>
