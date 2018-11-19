@@ -11,8 +11,12 @@ object BundlePrinter {
     private val TAG = BundlePrinter::class.java.simpleName
     private const val SPACE_OFFSET = 4
 
-    fun printBundleContents(clazz: Class<*>, context: Context, bundle: Bundle) {
+    fun printBundleContents(clazz: Class<*>, context: Context, bundle: Bundle?) {
         //TODO multiple logging levels
+        if (bundle == null) {
+            Log.d(TAG, context.getString(R.string.banner) + System.lineSeparator() + context.getString(R.string.bundle_empty))
+            return
+        }
         Log.d(TAG, context.getString(R.string.banner) + System.lineSeparator() + getHeaderAsString(clazz, context, bundle) + System.lineSeparator() + getContents(context, 1, bundle))
     }
 

@@ -1,9 +1,9 @@
 package com.pnuema.savestateobserver.observers
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.util.SparseArray
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.pnuema.savestateobserver.BundlePrinter
 
 class FragmentSaveStateSupportObserver : FragmentManager.FragmentLifecycleCallbacks() {

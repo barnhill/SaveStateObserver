@@ -1,10 +1,8 @@
 package com.pnuema.savestateobserver.observers
 
 import android.app.Activity
-import android.os.Build
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
-
+import androidx.fragment.app.FragmentActivity
 import com.pnuema.savestateobserver.BundlePrinter
 
 class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
@@ -14,9 +12,6 @@ class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
         if (activity is FragmentActivity) {
             val fragmentSaveStateSupportObserver = FragmentSaveStateSupportObserver()
             activity.supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentSaveStateSupportObserver, true)
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val fragmentSaveStateObserver = FragmentSaveStateObserver()
-            activity.fragmentManager.registerFragmentLifecycleCallbacks(fragmentSaveStateObserver, true)
         }
     }
 

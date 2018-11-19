@@ -10,6 +10,7 @@
     </plurals>
     <string name="kilobyte_suffix">%s KB</string>
     <string name="bytes_suffix">%s bytes</string>
+    <string name="bundle_empty">Bundle is null</string>
 
     <!-- non-translatable strings -->
     <string name="banner" translatable="false">===== SaveStateObserver =====</string>
