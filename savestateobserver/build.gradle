@@ -7,7 +7,7 @@ plugins {
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-version = "2.1.0"
+version = "2.2.0"
 group = "com.pnuema.android"
 
 ext {

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pnuema.android</groupId>
   <artifactId>savestateobserver</artifactId>
-  <version>2.1.0</version>
+  <version>2.2.0</version>
   <packaging>aar</packaging>
   <name>savestateobserver</name>
   <description>Android tool to output the contents sizes of saved state bundles in onSaveInstance state calls</description>
