@@ -1,14 +1,16 @@
 plugins {
-    id 'maven'
-    id 'com.github.dcendents.android-maven' version '2.1'
     id 'com.jfrog.bintray' version '1.8.0'
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'org.jetbrains.dokka-android'
 
 version = "2.2.0"
 group = "com.pnuema.android"
+archivesBaseName = 'savestateobserver'
 
 ext {
     siteUrl = 'https://github.com/barnhill/savestateobserver'
@@ -45,21 +47,29 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+dokka {
+    linkMapping {
+        dir = "src/main/java"
+        url = "https://github.com/barnhill/SaveStateObserver/tree/master/savestateobserver/src/main/java"
+        suffix = "#L"
+    }
+    outputFormat = 'html'
+    outputDirectory = "$buildDir/../../javadoc"
+}
+
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from android.sourceSets.main.java.srcDirs
 }
 
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    destinationDir = file("../javadoc/")
-    failOnError false
+task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
+    outputFormat = 'javadoc'
+    outputDirectory = "$buildDir/../../javadoc"
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
+task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
     classifier = 'javadoc'
-    from javadoc.destinationDir
+    from dokkaJavadoc.outputDirectory
 }
 
 artifacts {
@@ -175,3 +185,4 @@ task createPom {
     }.writeTo("$buildDir/poms/pom-default.xml").writeTo("pom.xml")
 }
 build.dependsOn createPom
+build.dependsOn dokkaJavadoc
