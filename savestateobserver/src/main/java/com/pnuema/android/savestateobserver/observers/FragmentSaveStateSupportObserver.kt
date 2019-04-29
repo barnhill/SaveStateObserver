@@ -1,10 +1,10 @@
-package com.pnuema.savestateobserver.observers
+package com.pnuema.android.savestateobserver.observers
 
 import android.os.Bundle
 import android.util.SparseArray
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.pnuema.savestateobserver.BundlePrinter
+import com.pnuema.android.savestateobserver.BundlePrinter
 
 class FragmentSaveStateSupportObserver : FragmentManager.FragmentLifecycleCallbacks() {
     private val bundles = SparseArray<Bundle>()

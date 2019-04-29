@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.pnuema.savestateobserver.app"
+        applicationId "com.pnuema.android.savestateobserver.app"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

@@ -1,9 +1,9 @@
-package com.pnuema.savestateobserver.observers
+package com.pnuema.android.savestateobserver.observers
 
 import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import com.pnuema.savestateobserver.BundlePrinter
+import com.pnuema.android.savestateobserver.BundlePrinter
 
 class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
     override fun onActivityCreated(activity: Activity, bundle: Bundle?) {

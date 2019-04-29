@@ -1,11 +1,12 @@
-package com.pnuema.savestateobserver
+package com.pnuema.android.savestateobserver
 
 import android.content.Context
 import android.os.Bundle
 import android.os.Parcel
 import android.util.Log
 import java.nio.CharBuffer
-import java.util.*
+import java.util.Locale
+import java.util.Objects
 
 object BundlePrinter {
     private val TAG = BundlePrinter::class.java.simpleName

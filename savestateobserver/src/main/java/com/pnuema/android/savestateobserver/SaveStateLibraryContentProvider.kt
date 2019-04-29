@@ -1,8 +1,8 @@
-package com.pnuema.savestateobserver
+package com.pnuema.android.savestateobserver
 
 import android.app.Application
 
-import com.pnuema.savestateobserver.observers.ActivitySaveStateObserver
+import com.pnuema.android.savestateobserver.observers.ActivitySaveStateObserver
 
 class SaveStateLibraryContentProvider : BaseContentProvider() {
     override fun onCreate(): Boolean {

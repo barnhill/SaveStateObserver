@@ -1,4 +1,4 @@
-package com.pnuema.savestateobserver;
+package com.pnuema.android.savestateobserver;
 
 import org.junit.Test;
 
