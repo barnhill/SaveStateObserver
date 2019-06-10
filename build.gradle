@@ -1,5 +1,5 @@
 wrapper {
-    gradleVersion = '5.4'
+    gradleVersion = '5.4.1'
 }
 
 buildscript {
@@ -10,7 +10,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0'
+        classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.17"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
