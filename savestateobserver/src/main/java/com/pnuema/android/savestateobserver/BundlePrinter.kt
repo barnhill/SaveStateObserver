@@ -5,24 +5,29 @@ import android.os.Bundle
 import android.os.Parcel
 import android.util.Log
 import java.nio.CharBuffer
-import java.util.Locale
-import java.util.Objects
+import java.util.*
 
 object BundlePrinter {
-    private val TAG = BundlePrinter::class.java.simpleName
     private const val SPACE_OFFSET = 4
+    private const val BUNDLE_SIZE_THRESHOLD = 50000 //Recommended by Google (https://developer.android.com/guide/components/activities/parcelables-and-bundles.html#sdbp)
 
-    fun printBundleContents(clazz: Class<*>, context: Context, bundle: Bundle?) {
+    fun printBundleContents(context: Context, bundle: Bundle?) {
         //TODO multiple logging levels
         if (bundle == null) {
-            Log.d(TAG, context.getString(R.string.banner) + System.lineSeparator() + context.getString(R.string.bundle_empty))
+            Log.d(context.getString(R.string.libname), context.getString(R.string.banner) + System.lineSeparator() + context.getString(R.string.bundle_empty))
             return
         }
-        Log.d(TAG, context.getString(R.string.banner) + System.lineSeparator() + getHeaderAsString(clazz, context, bundle) + System.lineSeparator() + getContents(context, 1, bundle))
+
+        val bundleSizeRaw = getBundleTotalSize(bundle)
+        if (bundleSizeRaw > BUNDLE_SIZE_THRESHOLD) {
+            Log.w(context.getString(R.string.libname), context.getString(R.string.bundle_overthreshold, condense(context, bundleSizeRaw)))
+        }
+
+        Log.d(context.getString(R.string.libname), context.getString(R.string.banner) + System.lineSeparator() + getHeaderAsString(context, bundle) + System.lineSeparator() + getContents(context, 1, bundle))
     }
 
-    private fun getHeaderAsString(clazz: Class<*>, context: Context, bundle: Bundle): String {
-        return context.resources.getQuantityString(R.plurals.title, bundle.size(), clazz.simpleName, System.identityHashCode(bundle), bundle.size(), condense(context, getBundleTotalSize(bundle)))
+    private fun getHeaderAsString(context: Context, bundle: Bundle): String {
+        return context.resources.getQuantityString(R.plurals.title, bundle.size(), context.javaClass.simpleName, System.identityHashCode(bundle), bundle.size(), condense(context, getBundleTotalSize(bundle)))
     }
 
     private fun getBundleTotalSize(bundle: Bundle): Int {

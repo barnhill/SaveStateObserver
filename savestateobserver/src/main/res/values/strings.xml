@@ -11,8 +11,10 @@
     <string name="kilobyte_suffix">%s KB</string>
     <string name="bytes_suffix">%s bytes</string>
     <string name="bundle_empty">Bundle is null</string>
+    <string name="bundle_overthreshold">Oversized bundle detected: %s</string>
 
     <!-- non-translatable strings -->
+    <string name="libname" translatable="false">SaveStateObserver</string>
     <string name="banner" translatable="false">===== SaveStateObserver =====</string>
     <string name="entry_format" translatable="false">%1$s %2$s = %3$s</string>
 </resources>

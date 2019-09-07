@@ -5,7 +5,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'org.jetbrains.dokka-android'
 apply plugin: 'com.jfrog.bintray'
 
-version = "2.2.0"
+version = "2.3.0"
 group = "com.pnuema.android"
 archivesBaseName = 'savestateobserver'
 
@@ -16,10 +16,10 @@ ext {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName version
     }
@@ -28,7 +28,7 @@ android {
             minifyEnabled false
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     testImplementation 'junit:junit:4.12'
 }

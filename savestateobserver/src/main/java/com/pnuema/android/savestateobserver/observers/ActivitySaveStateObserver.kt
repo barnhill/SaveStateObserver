@@ -10,14 +10,13 @@ class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
         super.onActivityCreated(activity, bundle)
 
         if (activity is FragmentActivity) {
-            val fragmentSaveStateSupportObserver = FragmentSaveStateSupportObserver()
-            activity.supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentSaveStateSupportObserver, true)
+            activity.supportFragmentManager.registerFragmentLifecycleCallbacks(FragmentSaveStateSupportObserver(), true)
         }
     }
 
     override fun onActivityStopped(activity: Activity) {
         val index = activity.hashCode()
-        BundlePrinter.printBundleContents(activity.javaClass, activity, bundles.get(index))
+        BundlePrinter.printBundleContents(activity, bundles.get(index))
         bundles.remove(index)
     }
 

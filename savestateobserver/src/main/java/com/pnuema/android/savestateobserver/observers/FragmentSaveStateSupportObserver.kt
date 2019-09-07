@@ -12,10 +12,8 @@ class FragmentSaveStateSupportObserver : FragmentManager.FragmentLifecycleCallba
     override fun onFragmentStopped(fragmentManager: FragmentManager, fragment: Fragment) {
         super.onFragmentStopped(fragmentManager, fragment)
 
-        val context = fragment.context ?: return
-
         bundles.remove(fragment.hashCode())
-        BundlePrinter.printBundleContents(fragment.javaClass, context, bundles.get(fragment.hashCode()))
+        BundlePrinter.printBundleContents(fragment.context ?: return, bundles.get(fragment.hashCode()))
     }
 
     override fun onFragmentSaveInstanceState(fragmentManager: FragmentManager, fragment: Fragment, outState: Bundle) {
