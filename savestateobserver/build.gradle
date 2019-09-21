@@ -5,7 +5,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'org.jetbrains.dokka-android'
 apply plugin: 'com.jfrog.bintray'
 
-version = "2.3.0"
+version = "2.3.1"
 group = "com.pnuema.android"
 archivesBaseName = 'savestateobserver'
 
@@ -28,7 +28,7 @@ android {
             minifyEnabled false
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
