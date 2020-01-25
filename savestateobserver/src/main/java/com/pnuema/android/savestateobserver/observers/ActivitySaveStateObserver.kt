@@ -9,9 +9,7 @@ class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
     override fun onActivityCreated(activity: Activity, bundle: Bundle?) {
         super.onActivityCreated(activity, bundle)
 
-        if (activity is FragmentActivity) {
-            activity.supportFragmentManager.registerFragmentLifecycleCallbacks(FragmentSaveStateSupportObserver(), true)
-        }
+        (activity as? FragmentActivity)?.supportFragmentManager?.registerFragmentLifecycleCallbacks(FragmentSaveStateSupportObserver(), true)
     }
 
     override fun onActivityStopped(activity: Activity) {
@@ -21,8 +19,8 @@ class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
     }
 
     override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) {
-        if (bundle != null) {
-            bundles.put(activity.hashCode(), bundle)
+        bundle?.let {
+            bundles.put(activity.hashCode(), it)
         }
     }
 }
