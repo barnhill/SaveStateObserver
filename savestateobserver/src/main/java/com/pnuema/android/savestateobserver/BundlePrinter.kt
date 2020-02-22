@@ -7,6 +7,9 @@ import android.util.Log
 import java.nio.CharBuffer
 import java.util.*
 
+/**
+ * Prints the contents of bundles
+ */
 object BundlePrinter {
     private const val SPACE_OFFSET = 4
     private const val BUNDLE_SIZE_THRESHOLD = 50000 //Recommended by Google (https://developer.android.com/guide/components/activities/parcelables-and-bundles.html#sdbp)
