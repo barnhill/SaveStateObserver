@@ -5,7 +5,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'org.jetbrains.dokka'
 apply plugin: 'com.jfrog.bintray'
 
-version = "2.3.4"
+version = "2.3.5"
 group = "com.pnuema.android"
 archivesBaseName = 'savestateobserver'
 
@@ -16,10 +16,10 @@ ext {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName version
     }
