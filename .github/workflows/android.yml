@@ -20,8 +20,8 @@ jobs:
     - name: Setup environment variables
       run: echo Setup environment variables
       env:
-        - BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
-        - BINTRAY_GPGPASSWORD: ${{ secrets.BINTRAY_GPGPASSWORD }}
-        - BINTRAY_APIKEY: ${{ secrets.BINTRAY_APIKEY }}
+        BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
+        BINTRAY_GPGPASSWORD: ${{ secrets.BINTRAY_GPGPASSWORD }}
+        BINTRAY_APIKEY: ${{ secrets.BINTRAY_APIKEY }}
     - name: Build with Gradle
       run: ./gradlew clean build
