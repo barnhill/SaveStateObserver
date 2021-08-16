@@ -1,4 +1,4 @@
-# SaveStateObserver  [ ![Download](https://api.bintray.com/packages/bradfordbarnhill/maven/savestateobserver/images/download.svg)](https://bintray.com/bradfordbarnhill/maven/savestateobserver/_latestVersion) ![Build Status](https://github.com/barnhill/SaveStateObserver/workflows/Android%20CI/badge.svg) [![API](https://img.shields.io/badge/API-17%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=17)
+# SaveStateObserver  ![Build Status](https://github.com/barnhill/SaveStateObserver/workflows/Android%20CI/badge.svg) [![API](https://img.shields.io/badge/API-17%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=17)
 Android tool to output the contents sizes of saved state bundles in onSaveInstance state calls.  This will allow you to analyze your bundles as you pass data to other classes to prevent them from growing to sizes that are not allowed by Android.
 
 ## Usage
