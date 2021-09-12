@@ -4,7 +4,7 @@ Android tool to output the contents sizes of saved state bundles in onSaveInstan
 ## Usage
 To use in debug builds only use:
 ```Gradle
-debugImplementation 'com.pnuema.android:savestateobserver:2.3.5'
+debugImplementation 'com.pnuema.android:savestateobserver:2.4.0'
 ```
 Once it has been included as a dependency it will listen for lifecycle state changes and output the following information without any code being inserted in your codebase.
 
