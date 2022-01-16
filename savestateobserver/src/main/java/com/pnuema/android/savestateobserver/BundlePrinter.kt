@@ -10,7 +10,7 @@ import java.util.*
 /**
  * Prints the contents of bundles
  */
-object BundlePrinter {
+internal object BundlePrinter {
     private const val SPACE_OFFSET = 4
     private const val BUNDLE_SIZE_THRESHOLD = 50000 //Recommended by Google (https://developer.android.com/guide/components/activities/parcelables-and-bundles.html#sdbp)
 
@@ -24,10 +24,13 @@ object BundlePrinter {
         val bundleSizeRaw = getBundleTotalSize(bundle)
         if (bundleSizeRaw > BUNDLE_SIZE_THRESHOLD) {
             Log.w(context.getString(R.string.libname), context.getString(R.string.bundle_overthreshold, condense(context, bundleSizeRaw)))
+            OversizeBundleNotifier.notifyOversizeBundle(context = context.applicationContext, stringifyBundle = stringifyBundle(context = context, bundle = bundle))
         }
 
-        Log.d(context.getString(R.string.libname), context.getString(R.string.banner) + System.lineSeparator() + getHeaderAsString(context, bundle) + System.lineSeparator() + getContents(context, 1, bundle))
+        Log.d(context.getString(R.string.libname), context.getString(R.string.banner) + System.lineSeparator() + stringifyBundle(context = context, bundle = bundle))
     }
+
+    private fun stringifyBundle(context: Context, bundle: Bundle) = getHeaderAsString(context, bundle) + System.lineSeparator() + getContents(context, 1, bundle)
 
     private fun getHeaderAsString(context: Context, bundle: Bundle): String {
         return context.resources.getQuantityString(R.plurals.title, bundle.size(), context.javaClass.simpleName, System.identityHashCode(bundle), bundle.size(), condense(context, getBundleTotalSize(bundle)))
