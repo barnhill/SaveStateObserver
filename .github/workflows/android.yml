@@ -23,7 +23,12 @@ jobs:
         check-latest: true
     - name: Build with Gradle
       env:
-        BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
-        BINTRAY_GPGPASSWORD: ${{ secrets.BINTRAY_GPGPASSWORD }}
-        BINTRAY_APIKEY: ${{ secrets.BINTRAY_APIKEY }}
+        ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVENCENTRALUSERNAME }}
+        ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVENCENTRALPASSWORD }}
+        ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_PRIVATE_KEY  }}
+        ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD  }}
       run: ./gradlew clean build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: build/libs
