@@ -4,7 +4,7 @@ Android tool to output the contents sizes of saved state bundles in onSaveInstan
 ## Usage
 To use in debug builds only use:
 ```Gradle
-debugImplementation 'com.pnuema.android:savestateobserver:2.4.0'
+debugImplementation 'com.pnuema.android:savestateobserver:2.5.0'
 ```
 Once it has been included as a dependency it will listen for lifecycle state changes and output the following information without any code being inserted in your codebase.
 
@@ -29,3 +29,40 @@ Once it has been included as a dependency it will listen for lifecycle state cha
              android:lastAutofillId = 8 bytes
              android:fragments = 352 bytes
              LongArray = 44.81 KB
+
+## Notification
+Consumers can register for detection events.  To do so create a work request by extending OversizeBundleWorker.
+
+    Example:
+
+        class AppOversizeBundleWorker(
+            context: Context,
+            workerParams: WorkerParameters
+        ) : OversizeBundleWorker(context, workerParams) {
+            override fun doWork(stringifyBundle: String?) {
+                Log.e(
+                    "AppBundleWorker",
+                    "OVERSIZE BUNDLE DETECTED: $stringifyBundle"
+                )
+            }
+        }
+
+Then register this on application start in debug only code to receive notifications and perform the action
+intended such as logging analytic events, or reporting a bug.
+
+    Example:
+
+        uuid = OversizeBundleRegistrar.register(
+            OneTimeWorkRequest.Builder(AppOversizeBundleWorker::class.java)
+                .setConstraints(
+                    Constraints.Builder()
+                        .setRequiredNetworkType(NetworkType.CONNECTED)
+                        .build()
+                )
+        )
+
+Make sure to unregister when you no longer want to trigger the work to be done:
+
+    Example:
+    
+        OversizeBundleRegistrar.unregister(uuid)

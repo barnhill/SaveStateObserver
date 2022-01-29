@@ -1,9 +1,9 @@
-package com.pnuema.app
+package com.pnuema.android.savestateobserver.app
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt("Integer", 1234)
         outState.putString("String", "StringTest")
@@ -13,6 +13,13 @@ class MainActivity : AppCompatActivity() {
         innerBundle.putInt("Integer", 5678)
         innerBundle.putString("String", "InnerStringTest")
         innerBundle.putFloat("Float", 56.78F)
+
+        //generate 50k of data for the bundle
+        var bigString = ""
+        while (bigString.length < 50000) {
+            bigString += UUID.randomUUID().toString()
+        }
+        innerBundle.putString("BigString", bigString)
 
         outState.putBundle("innerBundle", innerBundle)
 
