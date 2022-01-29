@@ -24,7 +24,7 @@ internal object BundlePrinter {
         val bundleSizeRaw = getBundleTotalSize(bundle)
         if (bundleSizeRaw > BUNDLE_SIZE_THRESHOLD) {
             Log.w(context.getString(R.string.libname), context.getString(R.string.bundle_overthreshold, condense(context, bundleSizeRaw)))
-            OversizeBundleNotifier.notifyOversizeBundle(context = context.applicationContext, stringifyBundle = stringifyBundle(context = context, bundle = bundle))
+            OversizeBundleRegistrar.notifyOversizeBundle(context = context.applicationContext, stringifyBundle = stringifyBundle(context = context, bundle = bundle))
         }
 
         Log.d(context.getString(R.string.libname), context.getString(R.string.banner) + System.lineSeparator() + stringifyBundle(context = context, bundle = bundle))

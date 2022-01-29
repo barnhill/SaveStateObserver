@@ -6,8 +6,11 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import java.util.*
 
-object OversizeBundleNotifier {
-    val BUNDLE_STRING_ID = "BUNDLE_STRING_ID"
+/**
+ * Handles registration of workers to be notified should an overize bundle be detected.
+ */
+object OversizeBundleRegistrar {
+    private const val BUNDLE_STRING_ID = "BUNDLE_STRING_ID"
     private val mapOversizeWorkRequests: HashMap<UUID, OneTimeWorkRequest.Builder> = hashMapOf()
 
     fun register(workRequest: OneTimeWorkRequest.Builder): UUID = UUID.randomUUID().apply {
@@ -22,9 +25,13 @@ object OversizeBundleNotifier {
         mapOversizeWorkRequests.values.forEach { workRequest ->
             WorkManager.getInstance(context).enqueue(
                 workRequest.setInputData(
-                    Data.Builder().putString(BUNDLE_STRING_ID, stringifyBundle).build()
+                    Data.Builder()
+                        .putString(BUNDLE_STRING_ID, stringifyBundle)
+                        .build()
                 ).build()
             )
         }
     }
+
+    fun getBundle(workData: Data): String? = workData.getString(BUNDLE_STRING_ID)
 }
