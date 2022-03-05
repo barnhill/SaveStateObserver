@@ -1,0 +1,16 @@
+{
+  "modules": [
+    {
+      "name": "project",
+      "languageLevel": 11
+    },
+    {
+      "name": "project.app",
+      "languageLevel": 11
+    },
+    {
+      "name": "project.savestateobserver",
+      "languageLevel": 11
+    }
+  ]
+}

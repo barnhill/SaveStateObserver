@@ -1,0 +1,29 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Kotlin",
+  "type": "Kotlin Gradle and IDE plugins versions are different",
+  "severity": "High",
+  "comment": "Kotlin version that is used for building with Gradle (1.6.10) differs from the one bundled into the IDE plugin (1.5.10)",
+  "detailsInfo": "Reports that different IDE and Gradle plugin versions are used.\n\nThis can cause inconsistencies between IDE and Gradle builds in error reporting or code behavior.\n\n**Example:**\n\n\n      dependencies {\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:0.0.1\"\n      }\n\nTo fix the problem change the kotlin gradle plugin version to match the version of kotlin that is bundled into the IDE plugin.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "build.gradle",
+      "language": "Groovy",
+      "line": 17,
+      "offset": 9,
+      "length": 69,
+      "code": {
+        "startLine": 15,
+        "length": 69,
+        "offset": 84,
+        "surroundingCode": "    dependencies {\n        classpath 'com.android.tools.build:gradle:7.1.2'\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version\"\n        classpath \"org.jetbrains.dokka:dokka-gradle-plugin:1.5.0\"\n        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.18.0'"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "project",
+    "inspectionName": "DifferentKotlinGradleVersion"
+  },
+  "hash": "9e665c1204f73ec90e6fdc7e4019dc76d2493366e732efe4f75bab7bc0525127"
+}]}
