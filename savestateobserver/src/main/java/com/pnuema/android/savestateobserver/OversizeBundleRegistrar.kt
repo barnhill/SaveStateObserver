@@ -1,37 +1,33 @@
 package com.pnuema.android.savestateobserver
 
-import android.content.Context
-import androidx.work.Data
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
 import java.util.*
 
 /**
  * Handles registration of workers to be notified should an overize bundle be detected.
  */
 object OversizeBundleRegistrar {
-    private const val BUNDLE_STRING_ID = "BUNDLE_STRING_ID"
-    private val mapOversizeWorkRequests: HashMap<UUID, OneTimeWorkRequest.Builder> = hashMapOf()
+    private val mapOversizeWorkRequests: HashMap<UUID, (stringifyBundle: String) -> Unit> = hashMapOf()
 
-    fun register(workRequest: OneTimeWorkRequest.Builder): UUID = UUID.randomUUID().apply {
-        mapOversizeWorkRequests[this] = workRequest
+    /**
+     * Register for notification when an oversize bundle has been detected.
+     * @param listener Listener that will be notified when an oversize bundle is detected
+     * @return UUID that is an identifier for the listener that was registered.  This is used to unregister the listener.
+     */
+    fun register(listener: (stringifyBundle: String) -> Unit): UUID = UUID.randomUUID().apply {
+        mapOversizeWorkRequests[this] = listener
     }
 
+    /**
+     * Unregister the listener with the corresponding id.
+     * @param id UUID identifying the listener to remove.
+     */
     fun unregister(id: UUID) {
         mapOversizeWorkRequests.remove(id)
     }
 
-    fun notifyOversizeBundle(context: Context, stringifyBundle: String) {
-        mapOversizeWorkRequests.values.forEach { workRequest ->
-            WorkManager.getInstance(context).enqueue(
-                workRequest.setInputData(
-                    Data.Builder()
-                        .putString(BUNDLE_STRING_ID, stringifyBundle)
-                        .build()
-                ).build()
-            )
+    internal fun notifyOversizeBundle(stringifyBundle: String) {
+        mapOversizeWorkRequests.values.forEach { listener ->
+            listener.invoke(stringifyBundle)
         }
     }
-
-    fun getBundle(workData: Data): String? = workData.getString(BUNDLE_STRING_ID)
 }
