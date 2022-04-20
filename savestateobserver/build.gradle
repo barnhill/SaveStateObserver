@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka'
 apply plugin: "com.vanniktech.maven.publish"
 
-version = "2.5.0"
+version = "2.6.0"
 group = "com.pnuema.android"
 archivesBaseName = 'savestateobserver'
 
