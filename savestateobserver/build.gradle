@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka'
 apply plugin: "com.vanniktech.maven.publish"
 
-version = "2.6.1"
+version = "2.7.0"
 group = "com.pnuema.android"
 archivesBaseName = 'savestateobserver'
 
@@ -44,6 +44,7 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.startup:startup-runtime:1.1.1'
     testImplementation 'junit:junit:4.13.2'
 }
 
