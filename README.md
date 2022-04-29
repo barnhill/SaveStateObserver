@@ -4,7 +4,7 @@ Android tool to output the contents sizes of saved state bundles in onSaveInstan
 ## Usage
 To use in debug builds only use:
 ```Gradle
-debugImplementation 'com.pnuema.android:savestateobserver:2.7.0'
+debugImplementation 'com.pnuema.android:savestateobserver:2.7.1'
 ```
 Once it has been included as a dependency it will listen for lifecycle state changes and output the following information without any code being inserted in your codebase.
 
@@ -26,7 +26,7 @@ Once it has been included as a dependency it will listen for lifecycle state cha
              Bundle@51706823 InnerBundle contained 2 elements for 64.20 KB
                  InnerCharacterArray = 20.05 KB
                  InnerCharacterArray2 = 44.05 KB
-             android:lastAutofillId = 8 bytes
+             android:lastAutofillId = 8 bytes./
              android:fragments = 352 bytes
              LongArray = 44.81 KB
 
