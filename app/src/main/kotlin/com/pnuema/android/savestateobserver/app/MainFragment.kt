@@ -17,7 +17,7 @@ class MainFragment private constructor() : Fragment(R.layout.fragment_main) {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.generateOversizeBundle()
         super.onSaveInstanceState(outState)
+        outState.generateOversizeBundle()
     }
 }

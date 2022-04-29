@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.generateOversizeBundle()
         super.onSaveInstanceState(outState)
+        outState.generateOversizeBundle()
     }
 }
