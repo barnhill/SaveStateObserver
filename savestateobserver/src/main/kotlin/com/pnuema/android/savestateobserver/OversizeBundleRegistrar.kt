@@ -5,6 +5,7 @@ import java.util.*
 /**
  * Handles registration of workers to be notified should an overize bundle be detected.
  */
+@Suppress("unused")
 object OversizeBundleRegistrar {
     private val mapOversizeWorkRequests: HashMap<UUID, (stringifyBundle: String) -> Unit> = hashMapOf()
 
