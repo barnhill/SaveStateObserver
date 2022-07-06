@@ -60,12 +60,16 @@ internal object BundlePrinter {
         bundle.keySet().forEach { key ->
             if (bundle.get(key) is Bundle) {
                 val innerBundle = bundle.get(key) as Bundle
-                contents.append(context.resources.getQuantityString(R.plurals.bundle_entry_format, innerBundle.size(), getPrefix(layer), System.identityHashCode(innerBundle), key, innerBundle.size(), condense(context, getBundleTotalSize(innerBundle))))
-                contents.append('\n')
-                contents.append(getContents(context, layer + 1, Objects.requireNonNull(bundle.get(key)) as Bundle))
+                contents.apply {
+                    append(context.resources.getQuantityString(R.plurals.bundle_entry_format, innerBundle.size(), getPrefix(layer), System.identityHashCode(innerBundle), key, innerBundle.size(), condense(context, getBundleTotalSize(innerBundle))))
+                    append(System.lineSeparator())
+                    append(getContents(context, layer + 1, innerBundle))
+                }
             } else {
-                contents.append(context.getString(R.string.entry_format, getPrefix(layer), key, sizeOf(context, bundle, key)))
-                contents.append('\n')
+                contents.apply {
+                    append(context.getString(R.string.entry_format, getPrefix(layer), key, sizeOf(context, bundle, key)))
+                    append(System.lineSeparator())
+                }
             }
         }
 
@@ -73,13 +77,13 @@ internal object BundlePrinter {
     }
 
     private fun sizeOf(context: Context, bundle: Bundle, key: String): String {
-        val parcel = Parcel.obtain().apply {
+        Parcel.obtain().apply {
             writeValue(bundle.get(key))
-        }
-        val returnValue = parcel.dataSize()
-        parcel.recycle()
+            val returnValue = dataSize()
+            recycle()
 
-        return condense(context, returnValue)
+            return condense(context, returnValue)
+        }
     }
 
     private fun condense(context: Context, bytes: Int): String {
@@ -90,7 +94,7 @@ internal object BundlePrinter {
         }
     }
 
-    private fun getPrefix(layer: Int): String {
-        return CharBuffer.allocate(layer * SPACE_OFFSET).toString().replace('\u0000', ' ')
-    }
+    private fun getPrefix(layer: Int): String = CharBuffer.allocate(layer * SPACE_OFFSET)
+        .toString()
+        .replace('\u0000', ' ')
 }
