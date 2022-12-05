@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.pnuema.android.savestateobserver.app"
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -35,9 +35,9 @@ android {
 }
 
 dependencies {
-    debugImplementation project(":savestateobserver")
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.fragment:fragment-ktx:1.5.1'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation project(":savestateobserver")
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.4'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.startup:startup-runtime:1.1.1'
 }

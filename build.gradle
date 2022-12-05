@@ -6,7 +6,7 @@ wrapper {
 }
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.7.20'
 
     repositories {
         google()

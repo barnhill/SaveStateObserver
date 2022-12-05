@@ -3,7 +3,7 @@ package com.pnuema.android.savestateobserver
 import java.util.*
 
 /**
- * Handles registration of workers to be notified should an overize bundle be detected.
+ * Handles registration of workers to be notified should an oversize bundle be detected.
  */
 @Suppress("unused")
 object OversizeBundleRegistrar {
