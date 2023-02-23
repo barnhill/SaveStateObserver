@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.startup.Initializer
 import com.pnuema.android.savestateobserver.OversizeBundleRegistrar
 
+@Suppress("unused") // startup-runtime initializer
 class AppInitializer: Initializer<Unit> {
     override fun create(context: Context) {
         OversizeBundleRegistrar.register { stringifyBundle ->

@@ -58,8 +58,8 @@ internal object BundlePrinter {
     private fun getContents(context: Context, layer: Int, bundle: Bundle): String {
         val contents = StringBuilder()
         bundle.keySet().forEach { key ->
-            if (bundle.get(key) is Bundle) {
-                val innerBundle = bundle.get(key) as Bundle
+            if (bundle.getBundle(key) is Bundle) {
+                val innerBundle = bundle.getBundle(key) as Bundle
                 contents.apply {
                     append(context.resources.getQuantityString(R.plurals.bundle_entry_format, innerBundle.size(), getPrefix(layer), System.identityHashCode(innerBundle), key, innerBundle.size(), condense(context, getBundleTotalSize(innerBundle))))
                     append(System.lineSeparator())
@@ -78,7 +78,7 @@ internal object BundlePrinter {
 
     private fun sizeOf(context: Context, bundle: Bundle, key: String): String {
         Parcel.obtain().apply {
-            writeValue(bundle.get(key))
+            writeValue(bundle.getBundle(key))
             val returnValue = dataSize()
             recycle()
 
