@@ -15,10 +15,11 @@ ext {
 }
 
 android {
-    compileSdkVersion 32
+    namespace = 'com.pnuema.android.savestateobserver'
+    compileSdkVersion 33
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName version
     }

@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 android {
+    namespace = 'com.pnuema.android.savestateobserver.app'
     compileSdkVersion 33
 
     defaultConfig {
