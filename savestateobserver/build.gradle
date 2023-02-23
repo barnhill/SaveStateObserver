@@ -56,12 +56,12 @@ dokkaHtml.configure {
 }
 
 task sourcesJar(type: Jar) {
-    classifier = 'sources'
+    archiveClassifier.set('sources')
     from android.sourceSets.main.java.srcDirs
 }
 
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
-    classifier = 'javadoc'
+    archiveClassifier.set('javadoc')
     from dokkaJavadoc.outputDirectory
 }
 
