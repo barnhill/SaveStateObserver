@@ -15,10 +15,11 @@ ext {
 }
 
 android {
-    compileSdkVersion 32
+    namespace = 'com.pnuema.android.savestateobserver'
+    compileSdkVersion 33
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName version
     }
@@ -42,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.startup:startup-runtime:1.1.1'
     testImplementation 'junit:junit:4.13.2'
 }
@@ -56,12 +57,12 @@ dokkaHtml.configure {
 }
 
 task sourcesJar(type: Jar) {
-    classifier = 'sources'
+    archiveClassifier.set('sources')
     from android.sourceSets.main.java.srcDirs
 }
 
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
-    classifier = 'javadoc'
+    archiveClassifier.set('javadoc')
     from dokkaJavadoc.outputDirectory
 }
 
