@@ -2,7 +2,7 @@
 #libs
 kotlinx-serialization = "1.5.0"
 vanniktech-maven-publish = "0.25.2"
-evalex = "3.0.4"
+evalex = "3.0.5"
 androidx-startup = "1.1.1"
 androidx-appcompat = "1.6.1"
 androidx-fragment-ktx = "1.6.0"
@@ -12,7 +12,7 @@ junit = "4.13.2"
 #plugins
 kotlin= "1.8.22"
 gradlePlugins-agp = "8.0.2"
-tomlChecker = "0.46.0"
+tomlChecker = "0.47.0"
 gradleCacheFix = "2.7.1"
 dokka = "1.8.20"
 
