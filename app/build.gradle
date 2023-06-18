@@ -1,5 +1,12 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+plugins {
+    alias(libs.plugins.android)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.maven.publish)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.toml.version.checker)
+}
+
 android {
     namespace = 'com.pnuema.android.savestateobserver.app'
     compileSdkVersion 33
@@ -37,8 +44,8 @@ android {
 
 dependencies {
     implementation project(":savestateobserver")
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.fragment:fragment-ktx:1.5.6'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.startup:startup-runtime:1.1.1'
+    implementation (libs.android.material)
+    implementation (libs.androidx.fragment.ktx)
+    implementation (libs.androidx.appcompat)
+    implementation (libs.androidx.startup)
 }

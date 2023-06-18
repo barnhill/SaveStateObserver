@@ -1,7 +1,11 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'org.jetbrains.dokka'
-apply plugin: "com.vanniktech.maven.publish"
+plugins {
+    alias(libs.plugins.android)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.maven.publish)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.toml.version.checker)
+}
 
 version = "2.9.0"
 group = "com.pnuema.android"
@@ -47,9 +51,9 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.startup:startup-runtime:1.1.1'
-    testImplementation 'junit:junit:4.13.2'
+    implementation (libs.androidx.appcompat)
+    implementation (libs.androidx.startup)
+    testImplementation (libs.junit)
 }
 
 dokkaHtml.configure {

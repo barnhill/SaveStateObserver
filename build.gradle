@@ -1,28 +1,18 @@
-apply plugin: 'maven-publish'
-apply plugin: "com.vanniktech.maven.publish"
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+plugins {
+    alias(libs.plugins.android).apply(false)
+    alias(libs.plugins.kotlin.android).apply(false)
+    alias(libs.plugins.maven.publish).apply(false)
+    alias(libs.plugins.gradle.cachefix).apply(false)
+}
 
 wrapper {
-    gradleVersion = '8.1'
-}
-
-buildscript {
-    ext.kotlin_version = '1.8.20'
-
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.dokka:dokka-gradle-plugin:1.8.10"
-        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.25.1'
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+    gradleVersion = '8.1.1'
 }
