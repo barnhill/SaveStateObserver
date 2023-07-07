@@ -1,12 +1,20 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.application'
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.maven.publish)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.toml.version.checker)
+}
+
 android {
-    compileSdkVersion 31
+    namespace = 'com.pnuema.android.savestateobserver.app'
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.pnuema.android.savestateobserver.app"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -25,16 +33,19 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
 dependencies {
-    debugImplementation project(":savestateobserver")
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation project(":savestateobserver")
+    implementation (libs.android.material)
+    implementation (libs.androidx.fragment.ktx)
+    implementation (libs.androidx.appcompat)
+    implementation (libs.androidx.startup)
 }

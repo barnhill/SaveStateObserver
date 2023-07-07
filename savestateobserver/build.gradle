@@ -1,9 +1,13 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'org.jetbrains.dokka'
-apply plugin: "com.vanniktech.maven.publish"
+plugins {
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.maven.publish)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.toml.version.checker)
+}
 
-version = "2.5.0"
+version = "2.10.0"
 group = "com.pnuema.android"
 archivesBaseName = 'savestateobserver'
 
@@ -15,10 +19,11 @@ ext {
 }
 
 android {
-    compileSdkVersion 31
+    namespace = 'com.pnuema.android.savestateobserver'
+    compileSdkVersion 33
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName version
     }
@@ -32,20 +37,23 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-        useIR = true
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    kotlin {
+        jvmToolchain(17)
     }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    api 'androidx.work:work-runtime-ktx:2.7.1'
-    testImplementation 'junit:junit:4.13.2'
+    implementation (libs.androidx.appcompat)
+    implementation (libs.androidx.startup)
+    testImplementation (libs.junit)
 }
 
 dokkaHtml.configure {
@@ -57,12 +65,12 @@ dokkaHtml.configure {
 }
 
 task sourcesJar(type: Jar) {
-    classifier = 'sources'
+    archiveClassifier.set('sources')
     from android.sourceSets.main.java.srcDirs
 }
 
 task javadocJar(type: Jar, dependsOn: dokkaJavadoc) {
-    classifier = 'javadoc'
+    archiveClassifier.set('javadoc')
     from dokkaJavadoc.outputDirectory
 }
 

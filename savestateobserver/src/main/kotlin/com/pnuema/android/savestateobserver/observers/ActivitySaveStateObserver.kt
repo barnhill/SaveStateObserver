@@ -12,7 +12,7 @@ class ActivitySaveStateObserver : BaseActivityLifecycleCallbacks() {
         (activity as? FragmentActivity)?.supportFragmentManager?.registerFragmentLifecycleCallbacks(FragmentSaveStateSupportObserver(), true)
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle) {
+    override fun onActivityPostSaveInstanceState(activity: Activity, bundle: Bundle) {
         BundlePrinter.printBundleContents(activity, bundle)
     }
 }
