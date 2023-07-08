@@ -27,7 +27,7 @@ gradleEnterprise {
     }
 }
 
-def cacheUrl = (System.getenv("REMOTE_CACHE_URL") == null ? settings["REMOTE_CACHE_URL"] : "${System.getenv("REMOTE_CACHE_URL")}") ?: null
+def cacheUrl = (System.getenv("REMOTE_CACHE_URL") == null ? settings["REMOTE_CACHE_URL"] : ${System.getenv("REMOTE_CACHE_URL")}) ?: null
 
 if (cacheUrl != null) {
     buildCache {
