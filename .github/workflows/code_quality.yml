@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: build
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v4.2.2
+        uses: JetBrains/qodana-action@v2023.1.0
         with:
           linter: jetbrains/qodana-jvm
 
