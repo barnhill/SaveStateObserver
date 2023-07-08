@@ -9,6 +9,7 @@ on:
 jobs:
   qodana:
     runs-on: ubuntu-latest
+    environment: build
     steps:
       - uses: actions/checkout@v2
       - name: 'Qodana Scan'
