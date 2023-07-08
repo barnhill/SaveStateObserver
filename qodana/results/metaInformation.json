@@ -1,9 +1,14 @@
 {
-  "total": 1,
+  "total": 0,
   "tools inspection": {
-    "Code Inspection": 1
+    "Code Inspection": 0
   },
+  "linter": "QDJVM",
   "attributes": {
-    "deviceId": "200820300000000-1071-66d6-9f09-4029bfef8742"
+    "vcs": {
+      "sarifIdea": {}
+    },
+    "deviceId": "200820300000000-1071-66d6-9f09-4029bfef8742",
+    "jobUrl": ""
   }
 }

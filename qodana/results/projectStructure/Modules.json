@@ -5,12 +5,25 @@
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$",
+          "excludePatterns": [],
+          "excludeFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/.gradle",
+              "type": "Exclude",
+              "packagePrefix": ""
+            },
+            {
+              "path": "file://$PROJECT_DIR$/build",
+              "type": "Exclude",
+              "packagePrefix": ""
+            }
+          ],
           "sourceFolders": []
         }
       ],
       "orderEntries": [
         {
-          "name": "jbr-11",
+          "name": "17",
           "type": "SDK"
         },
         {
@@ -24,12 +37,25 @@
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$/app",
+          "excludePatterns": [],
+          "excludeFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/app/.gradle",
+              "type": "Exclude",
+              "packagePrefix": ""
+            },
+            {
+              "path": "file://$PROJECT_DIR$/app/build",
+              "type": "Exclude",
+              "packagePrefix": ""
+            }
+          ],
           "sourceFolders": []
         }
       ],
       "orderEntries": [
         {
-          "name": "jbr-11",
+          "name": "17",
           "type": "SDK"
         },
         {
@@ -43,12 +69,25 @@
       "contentEntries": [
         {
           "path": "file://$PROJECT_DIR$/savestateobserver",
+          "excludePatterns": [],
+          "excludeFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/savestateobserver/.gradle",
+              "type": "Exclude",
+              "packagePrefix": ""
+            },
+            {
+              "path": "file://$PROJECT_DIR$/savestateobserver/build",
+              "type": "Exclude",
+              "packagePrefix": ""
+            }
+          ],
           "sourceFolders": []
         }
       ],
       "orderEntries": [
         {
-          "name": "jbr-11",
+          "name": "17",
           "type": "SDK"
         },
         {
