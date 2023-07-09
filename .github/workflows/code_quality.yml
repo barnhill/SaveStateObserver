@@ -15,7 +15,7 @@ jobs:
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.1.0
         with:
-          linter: jetbrains/qodana-jvm
+          linter: jetbrains/qodana-jvm-android
       - uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
