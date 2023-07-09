@@ -73,6 +73,8 @@ internal object BundlePrinter {
             }
         }
 
+        System.out.println(contents.toString())
+
         return contents.toString()
     }
 
