@@ -48,14 +48,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.1.0
-        env:
-          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVENCENTRALUSERNAME }}
-          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVENCENTRALPASSWORD }}
-          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_PRIVATE_KEY  }}
-          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD  }}
-          REMOTE_CACHE_URL: ${{ secrets.REMOTE_CACHE_URL }}
-          REMOTE_CACHE_USER: ${{ secrets.REMOTE_CACHE_USER }}
-          REMOTE_CACHE_PASS: ${{ secrets.REMOTE_CACHE_PASS }}
+        with:
+          args: -e,REMOTE_CACHE_URL=${{ secrets.REMOTE_CACHE_URL }},-e,REMOTE_CACHE_USER=${{ secrets.REMOTE_CACHE_USER }},-e,REMOTE_CACHE_PASS=${{ secrets.REMOTE_CACHE_PASS }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
