@@ -8,12 +8,12 @@
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/barnhill/SaveStateObserver.git",
-        "revisionId": "b9b2f2f557de011874c77fe3e7542f3191bce8c5",
+        "revisionId": "56a29d959ae0e0ad4af52ca27173b8a42b1c50a4",
         "branch": "qodana"
       }
     },
     "deviceId": "200820300000000-8b93-f56c-2dec-51459859139d",
-    "jobUrl": "https://github.com/barnhill/SaveStateObserver/actions/runs/5498062952",
+    "jobUrl": "https://github.com/barnhill/SaveStateObserver/actions/runs/5498088311",
     "repoUrl": "https://github.com/barnhill/SaveStateObserver.git"
   }
 }
