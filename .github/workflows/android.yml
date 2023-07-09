@@ -49,7 +49,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@main
+        uses: JetBrains/qodana-action@v2023.1.5
         with:
           args: -e,REMOTE_CACHE_URL=${{ secrets.REMOTE_CACHE_URL }},-e,REMOTE_CACHE_USER=${{ secrets.REMOTE_CACHE_USER }},-e,REMOTE_CACHE_PASS=${{ secrets.REMOTE_CACHE_PASS }}
 
