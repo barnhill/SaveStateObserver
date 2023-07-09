@@ -49,6 +49,7 @@ jobs:
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.1.0
         with:
+          fetch-depth: 0
           args: -e,REMOTE_CACHE_URL=${{ secrets.REMOTE_CACHE_URL }},-e,REMOTE_CACHE_USER=${{ secrets.REMOTE_CACHE_USER }},-e,REMOTE_CACHE_PASS=${{ secrets.REMOTE_CACHE_PASS }}
 
       - name: Deploy to GitHub Pages
