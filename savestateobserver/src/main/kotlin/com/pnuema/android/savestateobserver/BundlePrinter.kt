@@ -72,8 +72,6 @@ internal object BundlePrinter {
                 }
             }
         }
-        
-        Date(4, 4, 4)
 
         return contents.toString()
     }
