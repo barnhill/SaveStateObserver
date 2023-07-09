@@ -72,8 +72,8 @@ internal object BundlePrinter {
                 }
             }
         }
-
-        System.out.println(contents.toString())
+        
+        Date(4, 4, 4)
 
         return contents.toString()
     }
