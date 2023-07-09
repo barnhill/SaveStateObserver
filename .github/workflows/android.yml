@@ -37,3 +37,21 @@ jobs:
       with:
         name: Package
         path: build/libs
+
+  qodana:
+    runs-on: ubuntu-latest
+    environment: build
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}  # to check out the actual pull request commit, not the merge commit
+          fetch-depth: 0  # a full history is required for pull request analysis
+      - name: 'Qodana Scan'
+        uses: JetBrains/qodana-action@v2023.1.0
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ runner.temp }}/qodana/results/report
+          destination_dir: ./qodana
