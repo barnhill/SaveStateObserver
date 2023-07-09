@@ -3,17 +3,17 @@
   "tools inspection": {
     "Code Inspection": 0
   },
-  "linter": "QDJVMC",
+  "linter": "QDANDC",
   "attributes": {
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/barnhill/SaveStateObserver.git",
-        "revisionId": "120f4aa02afef59dae7b07f29ea09be6a3880e5b",
+        "revisionId": "34efc93a73504319bd8f5ecf0d853e4979649d67",
         "branch": "qodana"
       }
     },
     "deviceId": "200820300000000-8b93-f56c-2dec-51459859139d",
-    "jobUrl": "https://github.com/barnhill/SaveStateObserver/actions/runs/5498094216",
+    "jobUrl": "https://github.com/barnhill/SaveStateObserver/actions/runs/5502561791",
     "repoUrl": "https://github.com/barnhill/SaveStateObserver.git"
   }
 }
