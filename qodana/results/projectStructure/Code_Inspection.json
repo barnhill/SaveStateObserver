@@ -23,7 +23,7 @@
       ],
       "orderEntries": [
         {
-          "name": "17",
+          "name": "corretto-17",
           "type": "SDK"
         },
         {
@@ -55,7 +55,7 @@
       ],
       "orderEntries": [
         {
-          "name": "17",
+          "name": "corretto-17",
           "type": "SDK"
         },
         {
@@ -87,7 +87,7 @@
       ],
       "orderEntries": [
         {
-          "name": "17",
+          "name": "corretto-17",
           "type": "SDK"
         },
         {
