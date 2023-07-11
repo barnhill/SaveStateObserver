@@ -27,28 +27,33 @@ gradleEnterprise {
     }
 }
 
-def cacheUrl = System.getenv("REMOTE_CACHE_URL") == null ? settings["REMOTE_CACHE_URL"] : "${System.getenv("REMOTE_CACHE_URL")}"
+// Configure Remote Build Cache
+if (settings.hasProperty("REMOTE_CACHE_URL") || System.hasProperty("REMOTE_CACHE_URL")) {
+    def cacheUrl = (System.getenv("REMOTE_CACHE_URL") == null ? settings["REMOTE_CACHE_URL"] : $ { System.getenv("REMOTE_CACHE_URL") }) ?: null
 
-if (cacheUrl != null) {
-    buildCache {
-        local {
-            removeUnusedEntriesAfterDays = 30
-        }
+    if (cacheUrl != null) {
+        buildCache {
+            local {
+                removeUnusedEntriesAfterDays = 30
+            }
 
-        remote(HttpBuildCache) {
-            url = cacheUrl
-            enabled = true
-            push = true
-            allowUntrustedServer = true
-            allowInsecureProtocol = false
-            if (enabled) {
-                println "Using remote build cache: " + cacheUrl
-            }
-            credentials {
-                username = System.getenv("REMOTE_CACHE_USER") == null ? settings['REMOTE_CACHE_USER'] : "${System.getenv("REMOTE_CACHE_USER")}"
-                password = System.getenv("REMOTE_CACHE_PASS") == null ? settings['REMOTE_CACHE_PASS'] : "${System.getenv("REMOTE_CACHE_PASS")}"
+            remote(HttpBuildCache) {
+                url = cacheUrl
+                enabled = true
+                push = true
+                allowUntrustedServer = true
+                allowInsecureProtocol = false
+                if (enabled) {
+                    println "Using remote build cache: " + cacheUrl
+                }
+                credentials {
+                    username = System.getenv("REMOTE_CACHE_USER") == null ? settings['REMOTE_CACHE_USER'] : "${System.getenv("REMOTE_CACHE_USER")}"
+                    password = System.getenv("REMOTE_CACHE_PASS") == null ? settings['REMOTE_CACHE_PASS'] : "${System.getenv("REMOTE_CACHE_PASS")}"
+                }
             }
         }
+    } else {
+        println "Not using remote build cache!"
     }
 } else {
     println "Not using remote build cache!"
