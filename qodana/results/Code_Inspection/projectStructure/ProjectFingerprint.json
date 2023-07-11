@@ -4,13 +4,8 @@
     "Kotlin",
     ".gitignore (GitIgnore)",
     "Groovy",
-    "Shrinker Config",
-    "Properties",
-    "TOML",
-    "YAML",
     "Plain text",
-    "Shell Script",
-    "textmate",
+    "Properties",
     "Java"
   ]
 }
