@@ -3,7 +3,6 @@
 plugins {
     id("com.android.application")
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.maven.publish)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dokka)
     alias(libs.plugins.toml.version.checker)

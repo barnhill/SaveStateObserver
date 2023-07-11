@@ -28,7 +28,7 @@ gradleEnterprise {
     }
 }
 
-val cacheUrl = if (System.getenv("REMOTE_CACHE_URL") == null) extra["REMOTE_CACHE_URL"] as String else System.getenv("REMOTE_CACHE_URL")
+val cacheUrl: String? = if (System.getenv("REMOTE_CACHE_URL") == null) extra["REMOTE_CACHE_URL"] as String else System.getenv("REMOTE_CACHE_URL")
 
 if (cacheUrl != null) {
     buildCache {
