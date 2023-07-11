@@ -13,6 +13,8 @@ plugins {
     alias(libs.plugins.gradle.cachefix).apply(false)
 }
 
-wrapper {
-    gradleVersion = '8.2'
+tasks {
+    wrapper {
+        gradleVersion = "8.2.1"
+    }
 }
