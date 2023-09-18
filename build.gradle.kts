@@ -1,10 +1,12 @@
 buildscript {
+    extra["gradleVersion"] = "8.3"
     repositories {
         google()
         mavenCentral()
         mavenLocal()
     }
 }
+val gradleVersion: String by extra
 
 plugins {
     alias(libs.plugins.androidLibrary).apply(false)
@@ -15,7 +17,7 @@ plugins {
 
 tasks {
     wrapper {
-        gradleVersion = "8.3"
+        gradleVersion = gradleVersion
         distributionType = Wrapper.DistributionType.BIN
     }
 }
