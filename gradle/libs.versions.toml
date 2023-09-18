@@ -11,7 +11,7 @@ junit = "4.13.2"
 
 #plugins
 kotlin= "1.9.0"
-gradlePlugins-agp = "8.0.2"
+gradlePlugins-agp = "8.1.1"
 tomlChecker = "0.47.0"
 gradleCacheFix = "2.7.1"
 dokka = "1.8.20"

@@ -9,15 +9,15 @@ plugins {
     alias(libs.plugins.toml.version.checker)
 }
 
-version = "2.10.0"
+version = "2.11.0"
 group = "com.pnuema.android"
 
 android {
     base.archivesName.set("savestateobserver")
     namespace = "com.pnuema.android.savestateobserver"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
-        minSdk = 19
+        minSdk = 24
     }
     buildTypes {
         named("debug") {
