@@ -1,5 +1,5 @@
 buildscript {
-    extra["gradleVersion"] = "8.3"
+    extra["gradleVersion"] = "8.5"
     repositories {
         google()
         mavenCentral()

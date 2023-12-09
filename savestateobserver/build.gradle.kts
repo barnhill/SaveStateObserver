@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.toml.version.checker)
 }
 
-version = "2.11.0"
+version = "2.12.0"
 group = "com.pnuema.android"
 
 android {
