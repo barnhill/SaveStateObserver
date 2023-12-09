@@ -48,7 +48,7 @@ dependencies {
     testImplementation (libs.junit)
 }
 
-val dokkaOutputDir = "$buildDir/dokka"
+val dokkaOutputDir = "${layout.buildDirectory}/dokka"
 tasks {
     val sourcesJar by creating(Jar::class) {
         archiveClassifier.set("sources")
