@@ -1,8 +1,7 @@
 [versions]
 #libs
-kotlinx-serialization = "1.5.1"
-vanniktech-maven-publish = "0.25.3"
-evalex = "3.1.0"
+kotlinx-serialization = "1.6.2"
+vanniktech-maven-publish = "0.27.0"
 androidx-startup = "1.1.1"
 androidx-appcompat = "1.6.1"
 androidx-fragment-ktx = "1.6.2"
@@ -10,8 +9,8 @@ android-material = "1.11.0"
 junit = "4.13.2"
 
 #plugins
-kotlin= "1.9.21"
-gradlePlugins-agp = "8.2.1"
+kotlin= "1.9.22"
+gradlePlugins-agp = "8.2.2"
 tomlChecker = "0.47.0"
 gradleCacheFix = "3.0"
 dokka = "1.9.10"
@@ -20,7 +19,6 @@ dokka = "1.9.10"
 dokka-gradle = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka" }
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-evalex = { module = "com.ezylang:EvalEx", version.ref = "evalex"}
 androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidx-startup" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment-ktx" }
