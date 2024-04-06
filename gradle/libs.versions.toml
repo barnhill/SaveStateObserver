@@ -10,7 +10,7 @@ junit = "4.13.2"
 
 #plugins
 kotlin= "1.9.22"
-gradlePlugins-agp = "8.2.2"
+gradlePlugins-agp = "8.3.1"
 tomlChecker = "0.47.0"
 gradleCacheFix = "3.0"
 dokka = "1.9.10"
