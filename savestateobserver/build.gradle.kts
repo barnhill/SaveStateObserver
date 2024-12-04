@@ -15,7 +15,7 @@ group = "com.pnuema.android"
 android {
     base.archivesName.set("savestateobserver")
     namespace = "com.pnuema.android.savestateobserver"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 24
     }
