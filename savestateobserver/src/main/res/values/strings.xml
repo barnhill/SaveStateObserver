@@ -8,6 +8,7 @@
         <item quantity="one">%1$s Bundle@%2$d %3$s contained %4$d elements for %5$s</item>
         <item quantity="other">%1$s Bundle@%2$d %3$s contained %4$d elements for %5$s</item>
     </plurals>
+    <string name="megabyte_suffix">%s MB</string>
     <string name="kilobyte_suffix">%s KB</string>
     <string name="bytes_suffix">%s bytes</string>
     <string name="bundle_empty">Bundle is null</string>

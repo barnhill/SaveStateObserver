@@ -1,7 +1,7 @@
 [versions]
 #libs
 kotlinx-serialization = "1.7.0"
-vanniktech-maven-publish = "0.28.0"
+vanniktech-maven-publish = "0.29.0"
 androidx-startup = "1.2.0"
 androidx-appcompat = "1.7.0"
 androidx-fragment-ktx = "1.8.6"

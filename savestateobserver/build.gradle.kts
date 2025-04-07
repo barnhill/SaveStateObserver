@@ -17,7 +17,7 @@ android {
     namespace = "com.pnuema.android.savestateobserver"
     compileSdk = 35
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
     }
     buildTypes {
         named("debug") {
@@ -48,35 +48,44 @@ dependencies {
     testImplementation (libs.junit)
 }
 
-val dokkaOutputDir = "${layout.buildDirectory}/dokka"
+val dokkaOutputDir = layout.buildDirectory.dir("dokka")
 tasks {
-    val sourcesJar by creating(Jar::class) {
+    val sourcesJar by registering(Jar::class, fun Jar.() {
         archiveClassifier.set("sources")
         from(android.sourceSets.getByName("main").java.srcDirs)
-    }
+    })
 
-    val javadocJar by creating(Jar::class) {
-        dependsOn.add(dokkaJavadoc)
+    val javadocJar by registering(Jar::class, fun Jar.() {
+        dependsOn.add(dokkaGenerate)
         archiveClassifier.set("javadoc")
         from(android.sourceSets.getByName("main").java.srcDirs)
         from(dokkaOutputDir)
-    }
+    })
 
     artifacts {
         archives(sourcesJar)
         archives(javadocJar)
     }
 
-    dokkaHtml {
-        outputDirectory.set(file(dokkaOutputDir))
-        dokkaSourceSets {
-            named("main") {
-                noAndroidSdkLink.set(false)
+    dokka {
+        moduleName.set("SaveStateObserver")
+        dokkaPublications.html {
+            suppressInheritedMembers.set(true)
+            failOnWarning.set(true)
+            outputDirectory.set(dokkaOutputDir)
+        }
+        dokkaSourceSets.main {
+            sourceLink {
+                localDirectory.set(file("src/main/kotlin"))
+                remoteUrl("https://example.com/src")
             }
+        }
+        pluginsConfiguration.html {
+            footerMessage.set("(c) Brad Barnhill")
         }
     }
 
     build {
-        dependsOn(dokkaJavadoc)
+        dependsOn(dokkaGenerate)
     }
 }

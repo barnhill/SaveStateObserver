@@ -58,14 +58,14 @@ internal object BundlePrinter {
     private fun getContents(context: Context, layer: Int, bundle: Bundle): String {
         val contents = StringBuilder()
         bundle.keySet().forEach { key ->
-            if (bundle.get(key) is Bundle) {
-                val innerBundle = bundle.getBundle(key) as Bundle
+
+            bundle.getBundle(key)?.let { innerBundle ->
                 contents.apply {
                     append(context.resources.getQuantityString(R.plurals.bundle_entry_format, innerBundle.size(), getPrefix(layer), System.identityHashCode(innerBundle), key, innerBundle.size(), condense(context, getBundleTotalSize(innerBundle))))
                     append(System.lineSeparator())
                     append(getContents(context, layer + 1, innerBundle))
                 }
-            } else {
+            } ?: run {
                 contents.apply {
                     append(context.getString(R.string.entry_format, getPrefix(layer), key, sizeOf(context, bundle, key)))
                     append(System.lineSeparator())
@@ -78,7 +78,13 @@ internal object BundlePrinter {
 
     private fun sizeOf(context: Context, bundle: Bundle, key: String): String {
         Parcel.obtain().apply {
-            writeValue(bundle.get(key))
+            val copy = bundle.deepCopy()
+            bundle.keySet().forEach {
+                if (it != key) {
+                    copy.remove(it)
+                }
+            }
+            writeBundle(copy)
             val returnValue = dataSize()
             recycle()
 
@@ -87,8 +93,16 @@ internal object BundlePrinter {
     }
 
     private fun condense(context: Context, bytes: Int): String {
-        return if (bytes > 1000) {
-            context.getString(R.string.kilobyte_suffix, String.format(Locale.getDefault(), "%.2f", bytes / 1000f))
+        return if (bytes > 1_000_000) {
+            context.getString(
+                R.string.megabyte_suffix,
+                String.format(Locale.getDefault(), "%.2f", bytes / 1_000_000f)
+            )
+        } else if (bytes > 1_000) {
+            context.getString(
+                R.string.kilobyte_suffix,
+                String.format(Locale.getDefault(), "%.2f", bytes / 1_000f)
+            )
         } else {
             context.getString(R.string.bytes_suffix, bytes.toString())
         }
