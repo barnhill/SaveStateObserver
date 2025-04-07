@@ -1,10 +1,10 @@
-# SaveStateObserver  ![Build Status](https://github.com/barnhill/SaveStateObserver/workflows/Android%20CI/badge.svg) [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
+# SaveStateObserver  ![Build Status](https://github.com/barnhill/SaveStateObserver/workflows/Android%20CI/badge.svg) [![API](https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 Android tool to output the contents sizes of saved state bundles in onSaveInstance state calls.  This will allow you to analyze your bundles as you pass data to other classes to prevent them from growing to sizes that are not allowed by Android.
 
 ## Usage
 To use in debug builds only use:
 ```Gradle
-debugImplementation 'com.pnuema.android:savestateobserver:2.13.0'
+debugImplementation 'com.pnuema.android:savestateobserver:2.14.0'
 ```
 Once it has been included as a dependency it will listen for lifecycle state changes and output the following information without any code being inserted in your codebase.
 
